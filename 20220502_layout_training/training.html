@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <!-- <script>
+    
+
+    let text = "tumbler";
+
+    let a = "gam"
+    let b = "bler"
+    let originalData
+
+    const root = document.getElementById('root');
+    console.dir(root);
+    // console.log(root.textContent[0]);
+    text="gambler";
+    root.textContent = text;
+    console.log(root.textContent[0]);
+
+
+
+  </script> -->
+
+  <script>
+    const root = document.getElementById('root');
+    let innerValue = "지금은 코딩중";
+    root.textContent = innerValue;
+
+
+    // <알고리즘연습 = 프로그래밍 기본기 중 하나>
+    // let current = 0;
+    // 사용하려고 만드는 변수를 떠올리는 것은 굉장히 어려움
+    // -> 눈에 보이지 않기 때문에 console로 확인하는 버릇이 필요
+
+    // if()은 무언가 비교를 할 때 많이 사용 = 판단하는 메인 제어문
+    // --> 비교를 할 값을 잘 만드는 것이 중요 = 프로그래밍 실력
+
+    // root.addEventListener('click', function() {
+    //   if(current === 0){
+    //     console.log('wow');
+    //     current = 1;
+    //   } else{
+    //     console.log('oops');
+    //     current = 0;
+    //   }
+    // });
+
+    let current = 0;
+    root.addEventListener('click', function(){
+      if(current < 10){
+        current++;
+        console.log(current);
+      } else {
+        current--;
+        console.log(current);
+      }
+    });
+
+    // 눈에 보이지 않는 숫자를 증가시키거나 감소시키는 연습!
+
+
+
+
+  </script>
+
+</body>
+</html>

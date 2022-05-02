@@ -1,0 +1,134 @@
+$width-root:100vw;
+$height-root:100vh;
+$color-black:black;
+$color-white:white;
+$solid-black:1px solid black;
+$solid-gray:1px solid #888;
+$solid-red:1px solid #613c3c;
+$solid-col:1px solid #AACCBE;
+$per-100:100%;
+$color-1:rgb(255, 255, 255);
+$color-2:rgb(211, 211, 211);
+$color-3:rgba(114, 114, 114, 0.5);
+$color-4:rgb(73, 73, 73);
+$color-5:rgb(77, 91, 105);
+$color-6:rgb(32, 42, 51);
+
+// ------------------------------------------------------------------
+
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+
+// ------------------------------------------------------------------
+
+
+@mixin flex-setting($jus, $ali) {
+  display: flex;
+  justify-content: $jus;
+  align-items: $ali;
+}
+
+
+@mixin root-style {
+  width: $width-root;
+  height: $height-root;
+
+  @include flex-setting(center, center);
+}  
+
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin transform($deg) {
+  transform: rotate($deg);
+}
+
+@mixin box-style($w, $h, $col,$radius) {
+  width: $w;
+  height: $h;
+  background-color: $col;
+  border-radius: $radius;
+  @include transform(45deg)
+}
+
+@mixin container-style($w, $h, $col) {
+  width: $w;
+  height: $h;
+  background-color: $col;
+  @include position-setting(relative, 2);
+}
+
+@mixin position-setting ($posi, $z-in){
+  position: $posi;
+  z-index: $z-in;
+}
+
+@mixin circle-style($w, $h) {
+  width: $w;
+  height: $h;
+  border-radius: 50%;
+  @include position-setting(relative, 1);
+}
+
+
+
+
+
+// -----------------------------------
+
+
+#root{
+  @include root-style();
+  
+  &>div:nth-child(1){
+    @include container-style(30vw, 70vh, $color-1);
+    left: 15vw;
+    @include flex-setting(flex-start, flex-end);
+
+    &>div{
+      @include circle-style(10px, 10px);
+      background-color: $color-2;
+      margin: 2px;
+      bottom: 10vh;
+    }
+  }
+
+  &>div:nth-child(2){
+    @include box-style(20vw, 20vw, $color-2, 40%);
+    @include position-setting(absolute, 3);
+  }
+
+  &>h3{
+    @include position-setting(absolute, 4);
+    color: $color-1;
+    left: 55vw;
+  }
+
+  &>div:nth-child(4){
+    @include box-style(20vw, 20vw, $color-3, 40%);
+    @include position-setting(absolute, 2);
+    right: 30vw;
+    top: 30vh;
+    filter: blur(30px);
+  }
+
+  &>div:nth-child(5){
+    @include circle-style(40vw, 40vw);
+    border: $solid-black;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

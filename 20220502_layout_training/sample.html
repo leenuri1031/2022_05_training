@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script>
+    const root = document.getElementById("root");
+    // 문서에서 id가 'root'인 객체를 가져와 변수 root에 대입
+    root.style.fontSize = "5rem";
+    // 변수 root의 style중 font-size 를 문자열'5rem'으로 지정
+    let isStatus = true;
+    // 변수 isStatus에 true를 대입
+    let current = 0;
+    // 변수 current에 0 대입
+    root.textContent = current;
+    // root의 textContent 내용에 변수 current에 대입된 0 입력
+    root.addEventListener('click', function () {
+      // root에 '클릭'이벤트 추가
+      if (isStatus === true) {
+        // 클릭을 할 때 변수 isStatus가 true이면
+        current++;
+        // 클릭을 할 때마다 current에 +1 (current = current + 1) 
+        if (current >= 10) {
+          // 클릭 후 current가 10이상이면
+          isStatus = false;
+          // true였던 변수 isStatus를 false로 재할당 
+        }
+        // 변수 isStatus가 true라면 current가 10이상이 될때까지 클릭을 하면 문서에 current++한 값을 입력해주고 변수 isStatus를 false로 바꿔줌
+        root.textContent = current;
+        // root의 textContent 내용에 current++ 한 값을 입력
+      } else {
+        // isStatus에 대입되있는 값이 true가 아니라면
+        current--;
+        // 클릭을 할 때마다 current에 -1 
+        if (current <= 0) {
+          // 클릭 후 current가 0 이하라면
+          isStatus = true;
+          // isStatus에 true를 대입
+        }
+        // 변수 isStatus가 false라면 current가 0 이하가 될때까지 클릭을 하면 문서에 current--한 값을 입력해주고 변수 isStatus를 true로 바꿔줌
+        root.textContent = current;
+        // root의 textContent 내용에 current-- 한 값을 입력
+      }
+    })
+  </script>
+
+</body>
+
+</html> 
