@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <button id="btn">click</button>
+  </div>
+  <script>
+
+    document.body.style.padding = 0;
+    document.body.style.margin = 0;
+
+    const root = document.getElementById('root');
+    console.log(root);
+    // console.dir(root);
+
+    root.style.margin = 0;
+    root.style.padding = 0;
+
+    root.style.width = '100vw';
+    root.style.height = '100vh';
+    root.style.backgroundColor = '#c4c4c4';
+
+    const btn = document.getElementById('btn');
+    console.log(btn);
+    // console.dir(btn);
+
+
+    const div = document.createElement("div");
+
+    console.dir(root);
+    let i =  0;
+    btn.addEventListener('click', function() {
+      root.appendChild(div);
+      console.log(div);
+      // console.log('test');
+    // root.style.backgroundColor = 'rgb(112, 85, 85)';
+    i++;
+    // if(i>1){
+    //   i=0;
+    //   console.log('now');
+    // // root.style.backgroundColor = '#c4c4c4';
+    // }
+    });
+
+
+  </script>
+</body>
+</html>

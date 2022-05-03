@@ -1,0 +1,124 @@
+$width-root:100vw;
+$height-root:100vh;
+$color-black:black;
+$color-white:white;
+$solid-black:1px solid black;
+$solid-gray:1px solid #888;
+$solid-red:1px solid #613c3c;
+$solid-col:1px solid #AACCBE;
+$per-100:100%;
+$color-1:rgb(255, 255, 255);
+$color-2:rgb(211, 211, 211);
+$color-3:rgba(114, 114, 114, 0.5);
+$color-4:rgb(73, 73, 73);
+$color-5:rgb(77, 91, 105);
+$color-6:rgb(32, 42, 51);
+
+// ------------------------------------------------------------------
+
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+
+// ------------------------------------------------------------------
+
+
+@mixin flex-setting($jus, $ali) {
+  display: flex;
+  justify-content: $jus;
+  align-items: $ali;
+}
+
+
+@mixin root-style {
+  width: $width-root;
+  height: $height-root;
+  @include flex-setting(center, center);
+}  
+
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin transform($deg) {
+  transform: rotate($deg);
+}
+
+@mixin container-style {
+  @include size(80%, 10%);
+  @include flex-setting(center, center);
+  overflow: hidden;
+}
+
+
+@mixin position-setting ($posi, $z-in){
+  position: $posi;
+  z-index: $z-in;
+}
+
+@mixin text-style {
+  @include size(10%, 80%);
+  @include flex-setting(center, center);
+  font-size: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+// -----------------------------------
+
+
+#root{
+  @include root-style();
+}
+
+#container{
+  @include container-style();
+
+  &>h1{
+    @include text-style();
+    z-index: 2;
+    top: 35%;
+  }
+
+  &>h1:nth-child(3){
+    @include transform(180deg);
+    top: 45%;
+  }
+
+  &>h1:nth-child(10){
+    @include position-setting(absolute, 1);
+    @include flex-setting(center, flex-end);
+    @include size(5%, 4.5%);
+    left: 58.1%;
+    top: 51%;
+  }
+
+  &>h1:nth-child(11){
+    top: 41%;
+  }
+
+  &>h1:nth-child(12){
+    @include transform(180deg);
+    top: 45%;
+  }
+
+  &>h1:nth-child(14){
+    @include transform(180deg);
+    top: 45%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

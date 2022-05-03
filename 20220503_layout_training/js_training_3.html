@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, animi autem? Odio earum commodi porro sapiente suscipit atque iste adipisci fugit ut, distinctio ullam cumque vero cum error ratione corporis?</div>
+    <div>
+      <button id="btn-a">day</button>
+      <button id="btn-b">night</button>
+      <button id="btn-c">reset</button>
+    </div>
+  </div>
+
+  <script>
+    
+    function sizeStyling(target, width, height) {
+      target.style.width = width;
+      target.style.height = height;
+    }
+
+    function flexStyle(target, display, justi, ali) {
+      target.style.display = display;
+      target.style.justifyContent = justi;
+      target.style.alignItems = ali;
+    }
+
+    function colorStyle(target, backCol, col){
+      target.style.backgroundColor = backCol;
+      target.style.color = col;
+    }
+
+    document.body.style.padding = 0;
+    document.body.style.margin = 0;
+
+    const root = document.getElementById('root');
+    console.log(root);
+    console.dir(root);
+
+    const btnA = document.getElementById('btn-a');
+    const btnB = document.getElementById('btn-b');
+    const btnC = document.getElementById('btn-c');
+    const btn = [btnA, btnB, btnC];
+
+    console.log(btn);
+    
+    // console.dir(btnA);
+    // console.dir(btnB);
+
+
+    // root-styling-------------------
+    sizeStyling(root, "100vw", "100vh");
+    // root.style.width = '100vw';
+    // root.style.height = '100vh';
+    // root.style.backgroundColor = '#AACCBE';
+
+    flexStyle(root, 'flex', 'flex-start', 'center');
+    root.style.flexDirection = 'column';
+
+
+    // text-styling-------------------
+    sizeStyling(root.children[0], "80%", "15%");
+    flexStyle(root.children[0], 'flex', 'flex-start', 'center');    
+
+
+
+    // div-styling--------------------
+
+    sizeStyling(root.children[1], "50%", "15%");
+    flexStyle(root.children[1], 'flex', 'space-evenly', 'center');    
+
+
+    // btn-styling-------------------
+    for(i = 0; i < btn.length; i++){
+      sizeStyling(btn[i], '20%', '20%');
+      flexStyle(btn[i], 'flex', 'center', 'center');    
+    }
+
+    // click-event -----------
+    btnA.addEventListener('click', function() {
+      // console.log('test');
+      colorStyle(root, '#AACCBE', 'rgb(32, 42, 51)');
+    });
+
+    btnB.addEventListener('click', function() {
+      // console.log('test');
+      colorStyle(root, '#303030', 'rgb(240, 240, 240)');
+    });
+
+    btnC.addEventListener('click', function() {
+      // console.log('test');
+      colorStyle(root, 'white', 'black');
+    });
+
+  </script>
+</body>
+</html>
