@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <button id="btn-a">start</button>
+    <button id="btn-b">stop</button>
+
+  <script>
+    const btnA = document.getElementById('btn-a');
+    const btnB = document.getElementById('btn-b');
+
+    console.dir(btnA);
+    console.dir(btnB);
+
+    // let status = true;
+
+    // if( status === true ){
+    //   console.log('똑');
+    //   status = false;
+    // } else {
+    //   console.log('딱');
+    //   status = true;
+    // }
+
+    // for( let i = 0; i < 2; i++){
+    //       if( status === true ){
+    //   console.log('똑');
+    //   status = false;
+    // } else {
+    //   console.log('딱');
+    //   status = true;
+    // }
+    // }
+
+    // btnA.addEventListener('click', function() {
+    //   for( let i = 0; i < 2; i++){
+    //       if( status === true ){
+    //   console.log('똑');
+    //   status = false;
+    // } else {
+    //   console.log('딱');
+    //   status = true;
+    // }
+    // }
+    // });
+
+
+    // btnB.addEventListener('click', function() {
+    // });
+
+    let i = 0;
+    let timer = setInterval(function() {
+      console.log('똑');
+      i++;
+
+      if(i === 1){
+        console.log('딱');
+        i = 0
+      } else{
+      console.log('똑');
+      }
+    }, 1000);
+
+
+  </script>
+</body>
+</html>

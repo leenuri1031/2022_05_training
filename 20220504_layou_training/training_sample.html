@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="alram">따르릉</h1>
+  <button id="a">A클릭</button>
+  <button id="b">B클릭</button>
+
+
+  <script>
+    const alram = document.querySelector('#alram');
+    const aBtn = document.querySelector('#a');
+    const bBtn = document.querySelector('#b');
+
+
+    aBtn.addEventListener('click', function() {
+      let a  = '똑';
+      let b = '딱';
+    
+    
+      let isStatus = true;
+      let current = 0;
+    
+      const timer = setInterval(function() {
+      if(isStatus === true){
+        alram.textContent = a ;
+        // console.log(a);
+        isStatus = false;
+      }else{
+        // console.log(b);
+        alram.textContent = b ;
+        isStatus = true;
+        current++;
+        alram.style.margin = current + 'px';
+        // console.log(`지금 똑딱이 횟수는${current}입니다.`);
+      }
+
+    // --------------------------------------------
+    bBtn.addEventListener('click', function() {
+      clearInterval(timer);
+    })
+    }, 500);
+
+    })
+
+
+
+
+
+  </script>
+</body>
+</html>

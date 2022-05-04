@@ -1,0 +1,179 @@
+$width-root:100vw;
+$height-root:100vh;
+$color-black:black;
+$color-white:white;
+$solid-black:1px solid black;
+$solid-gray:1px solid #888;
+$solid-red:1px solid #613c3c;
+$solid-col:1px solid #AACCBE;
+$per-100:100%;
+$color-1:rgb(240, 240, 240);
+$color-2:rgb(197, 197, 197);
+$color-3:rgba(145, 145, 145, 1);
+$color-4:rgba(97, 97, 97, 1);
+$color-5:rgba(77, 77, 77, 0.8);
+$color-6:rgba(39, 39, 39,0.8);
+
+// ------------------------------------------------------------------
+
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+
+// ------------------------------------------------------------------
+
+
+@mixin flex-setting($jus, $ali) {
+  display: flex;
+  justify-content: $jus;
+  align-items: $ali;
+}
+
+
+@mixin root-style {
+  width: $width-root;
+  height: $height-root;
+  @include flex-setting(center, center);
+}  
+
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin transform($deg) {
+  transform: rotate($deg);
+}
+
+@mixin container-style {
+  @include size($per-100, $per-100);
+  @include flex-setting(center, center);
+}
+
+@mixin shape-style($col) {
+  @include size($per-100, $per-100);
+  @include transform(45deg);
+  background-color: $col;
+  border-radius: 50% 40% 40% 20%;
+}
+
+@mixin box-style($grow, $bgc-col){
+  flex-grow: $grow;
+  height: $per-100;
+  background-color: $bgc-col;
+  padding: 30px;
+}
+
+
+@mixin position-setting ($posi, $z-in){
+  position: $posi;
+  z-index: $z-in;
+}
+
+@mixin text-style {
+  @include size(80%, 20%);
+  color: $color-2;
+}
+
+@mixin font-style($rem) {
+  color: $color-2;
+  font-size: $rem;
+  font-family: 'Monoton', cursive;
+  font-weight: 400;
+}
+
+
+
+// -----------------------------------
+
+
+#root{
+  @include root-style();
+}
+
+#container{
+  @include container-style();
+
+  &>section:nth-child(1){
+    @include box-style(0.5, $color-1);
+
+    &>ul{
+      @include size(5vw, 70vh);
+      list-style-type: none;
+
+      &>li {
+        @include size($per-100, 5vw);
+        background-color: $color-4;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  
+  &>section:nth-child(2){
+    @include box-style(0.6, $color-2);
+    @include flex-setting(center, flex-start);
+    
+        &>div{
+          @include text-style();
+          color: $color-6;
+        }
+  }
+
+  &>section:nth-child(3){
+    @include box-style(0.5, $color-3);
+    @include flex-setting(center, flex-end);
+
+    &>div{
+      @include text-style();
+    }
+  }
+
+  &>section:nth-child(4){
+    @include box-style(1, $color-4);
+    @include flex-setting(center, center);
+
+
+    &>div{
+      @include text-style();
+    }
+  }
+
+}
+
+#shape-box{
+  @include size(45%, 50%);
+  @include position-setting(absolute, 1);
+
+  &>div:first-child{
+    @include shape-style($color-6);
+    @include position-setting(absolute, 2);
+    bottom:25%;
+  }
+
+  &>div:nth-child(2){
+    @include shape-style($color-5);
+    @include position-setting(absolute, 1);
+    filter: blur(30px);
+  }
+
+  &>h1{
+    @include position-setting(absolute, 2);
+    @include font-style(5rem);
+    left: 20%;
+    top: 15%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

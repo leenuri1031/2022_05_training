@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <button>click</button>
+  </div>
+
+  <script>
+    function sizeStyling(target, width, height) {
+      target.style.width = width;
+      target.style.height = height;
+    }
+
+     // body-styling-----------------------------
+    document.body.style.padding = 0;
+    document.body.style.margin = 0;
+    // -----------------------------------------
+
+    const root = document.getElementById('root');
+    console.log(root);
+    console.dir(root);
+
+    const btn = document.querySelector('#root>button');
+    console.dir(btn);
+
+    
+    // root-styling-----------------------------
+    sizeStyling(root, "100vw", "100vh");
+    // -----------------------------------------
+    
+    // btn-styling-----------------------------
+    sizeStyling(btn, '10vw', '4vh');
+    btn.style.borderRadius = '10px';
+    btn.style.margin = '5vw';
+    // -----------------------------------------
+
+    const helloArr = ['h', 'e', 'l', 'l', 'o'];
+    // click-event-----------------------------
+    btn.addEventListener('click', function() {
+      // for(let i = 0; i < 55; i++){
+      //   console.log('hello');
+      // };
+      // for(let i = 0; i < helloArr.length; i++){
+      //   console.log(helloArr[i]);
+      // };
+    });
+
+    // -----------------------------------------
+
+
+
+  </script>
+</body>
+</html>
