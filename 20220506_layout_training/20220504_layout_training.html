@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://kit.fontawesome.com/12e1deed84.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root">
+    <div id="box">
+      <div>
+        <i class="fa-solid fa-xmark"></i>
+      </div>      <!-- x-mark -->
+      <div>
+        <div>LOREM</br>IPSUM</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, quas laborum, praesentium similique modi sed recusandae sequi distinctio alias eligendi saepe quibusdam eum labore dolorum iste tenetur at, omnis maxime!</div>
+      </div>      <!-- text-box -->
+      <div>close</div>      <!-- button -->
+    </div>
+    <div id="shadow-box"></div>
+    <div id = "text">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem accusamus itaque, vitae ullam reiciendis suscipit temporibus molestias pariatur aliquam inventore laboriosam nemo tempora ipsa quod doloribus, exercitationem eligendi deserunt, eaque sapiente reprehenderit. Voluptates iste quibusdam est culpa vitae. Nihil sed quos mollitia suscipit natus ipsa excepturi, animi quisquam quaerat, accusantium laboriosam nobis. Assumenda at autem, hic exercitationem tempora nesciunt. Fugiat dolor officia inventore explicabo molestiae sint incidunt mollitia corrupti et libero aliquid consequuntur quo illo eius voluptates beatae reprehenderit optio porro, laborum, maxime eos ducimus ex? Sint repellat dolores consectetur assumenda, doloremque libero? Ut ab, nihil alias esse accusantium deserunt.
+    </div>
+  </div>
+
+  <script>
+    const root = document.getElementById('root');
+    console.log(root);
+
+    const box = document.getElementById('box');
+    console.dir(box);
+
+    const shadowBox = document.getElementById('shadow-box');
+    console.dir(shadowBox);
+
+    const closBtn = box.children[2];
+    console.log(closBtn);
+    
+    const xMark = box.children[0];
+    console.log(xMark);
+    
+    const textBox = document.getElementById('text');
+    console.log(textBox);
+
+    let opacity = 0;
+    let count = 1;
+
+    closBtn.addEventListener('click', function(){
+      // console.log('close');
+      let fadeOut = setInterval(function() {
+        if(count >= 0){
+          count = count - 0.1;
+          box.style.opacity = count;
+          shadowBox.style.opacity = count;
+        } else{
+          clearInterval(fadeOut);
+        }
+      }, 20);
+
+      // box.style.display = 'none';
+      // shadowBox.style.display = 'none';
+    });
+
+    textBox.addEventListener('click', function(){
+      // console.log('close');
+      let fadeIn = setInterval(function() {
+        if(opacity < 1){
+          opacity = opacity + 0.1;
+          box.style.opacity = opacity;
+          shadowBox.style.opacity = opacity;
+        } else{
+          clearInterval(fadeIn);
+        }
+      }, 20);
+
+      // box.style.display = 'flex';
+      // shadowBox.style.display = 'block';
+    });
+
+    xMark.style.cursor = 'pointer';
+
+    xMark.addEventListener('click', function(){
+      let fade = setInterval(function() {
+        if(count >= 0){
+          count = count - 0.1;
+          box.style.opacity = count;
+          shadowBox.style.opacity = count;
+        } else{
+          clearInterval(fade);
+        }
+      }, 20);
+
+      // box.style.display = 'none';
+      // shadowBox.style.display = 'none';
+    
+    });
+
+// close 버튼이나 x버튼을 누르고 text-box를 클릭하면 팝업 창 뜨듯 나타나긴 하는데 그다음 close 버튼이나 x버튼을 눌러도 동작하지 않음 왜 한번씩 밖에 안되는지? 
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#box {
+  width: 25%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(240, 240, 240, 0.6);
+  border-radius: 60px;
+  position: absolute;
+  z-index: 2;
+  border: 1px solid #888;
+  left: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-direction: column;
+  padding: 2vw;
+}
+#box > div:nth-child(1) {
+  width: 30px;
+  height: 30px;
+  color: rgb(197, 197, 197);
+}
+#box > div:nth-child(1) > i {
+  font-size: 1.5rem;
+}
+#box > div:nth-child(2) {
+  width: 90%;
+  height: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+#box > div:nth-child(2) > div:nth-child(1) {
+  width: 90%;
+  height: 40%;
+  font-size: 3rem;
+  font-weight: 500;
+}
+#box > div:nth-child(2) > div:nth-child(2) {
+  text-align: justify;
+  width: 90%;
+  height: 50%;
+}
+#box > div:last-child {
+  width: 30%;
+  height: 8%;
+  background-color: rgb(197, 197, 197);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#shadow-box {
+  width: 25%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(145, 145, 145, 0.5);
+  border-radius: 60px;
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  left: 25%;
+  filter: blur(30px);
+}
+
+#text {
+  width: 30%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  color: rgb(197, 197, 197);
+}/*# sourceMappingURL=style.css.map */

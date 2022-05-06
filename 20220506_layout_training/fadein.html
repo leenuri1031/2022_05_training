@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <button id="click-btn">click</button>
+
+  <script>
+    const root = document.getElementById('root');
+    root.style.width = '200px';
+    root.style.height = '200px';
+    root.style.backgroundColor = '#333';
+
+    const clickBtn = document.getElementById('click-btn');
+
+    let opacityValue = 0;
+
+    root.style.opacity = opacityValue;
+
+    let isStatus = true;
+    clickBtn.addEventListener('click', function() {
+      let fade = setInterval(function() {
+        if(opacityValue < 1){
+          opacityValue = opacityValue + 0.1;
+          root.style.opacity = opacityValue;
+          // console.log(opacityValue);
+          isStatus = false;
+        } else{
+          clearInterval(fade);
+          // opacityValue = opacityValue - 0.1;
+          // opacityValue = 0;
+          // root.style.opacity = opacityValue;
+          // console.log(opacityValue);
+          isStatus = true;
+        }
+
+        // if(isStatus === true){
+        //   clearInterval(fade);
+        // }
+      }, 100);
+    });
+
+    // clickBtn.addEventListener('click', function() {
+    //   // opacityValue = 0;
+    //   // root.style.opacity = opacityValue;
+      
+    //   let fadeOut = setInterval(function() {
+    //     if(opacityValue > 0){
+    //       opacityValue = opacityValue - 0.1;
+    //       root.style.opacity = opacityValue;
+    //     } else{
+    //       clearInterval(fadeOut);
+    //     }
+    //   }, 20);
+    // });
+
+
+
+
+
+  </script>
+</body>
+</html>

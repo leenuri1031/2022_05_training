@@ -1,0 +1,142 @@
+$width-root:100vw;
+$height-root:100vh;
+$color-black:black;
+$color-white:white;
+$solid-black:1px solid black;
+$solid-gray:1px solid #888;
+$solid-red:1px solid #613c3c;
+$solid-col:1px solid #AACCBE;
+$per-100:100%;
+$color-1:rgb(240, 240, 240);
+$color-2:rgb(197, 197, 197);
+$color-3:rgba(240, 240, 240, 0.6);
+$color-4:rgba(145, 145, 145, 0.5);
+$color-5:rgba(77, 77, 77, 1);
+$color-6:rgba(39, 39, 39,0.8);
+
+// ------------------------------------------------------------------
+
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+
+// ------------------------------------------------------------------
+
+
+@mixin flex-setting($jus, $ali) {
+  display: flex;
+  justify-content: $jus;
+  align-items: $ali;
+}
+
+
+@mixin root-style {
+  width: $width-root;
+  height: $height-root;
+  @include flex-setting(center, center);
+}  
+
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+
+@mixin box-style($col) {
+  @include size(25%, 50%);
+  @include flex-setting(center, center);
+  background-color: $col;
+  border-radius: 60px;
+}
+
+@mixin btn-style {
+  width: 30%;
+  height: 8%;
+  background-color: $color-2;
+  @include flex-setting(center, center);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+@mixin position-setting ($posi, $z-in){
+  position: $posi;
+  z-index: $z-in;
+}
+
+@mixin font-style($rem, $f-weight) {
+  font-size: $rem;
+  font-weight: $f-weight;
+}
+
+
+
+// -----------------------------------
+
+#root{
+  @include root-style();
+}
+
+#box{
+  @include box-style($color-3);
+  @include position-setting(absolute, 2);
+  border: $solid-gray;
+  left: 20%;
+
+  @include flex-setting(space-around, flex-end);
+  flex-direction: column;
+  padding: 2vw;
+
+  &>div:nth-child(1){
+    @include size(30px, 30px);
+    color: $color-2;
+
+    &>i{
+      font-size: 1.5rem;
+    }
+  }
+
+  &>div:nth-child(2){
+    @include size(90%, 70%);
+    @include flex-setting(space-between, center);
+    flex-direction: column;
+
+    &>div:nth-child(1){
+      @include size(90%, 40%);
+      @include font-style(3rem, 500);
+    }
+
+    &>div:nth-child(2){
+      text-align: justify;
+      @include size(90%, 50%);
+    }
+  }
+
+  &>div:last-child{
+    @include btn-style();
+  }
+}
+
+#shadow-box{
+  @include box-style($color-4);
+  @include position-setting(absolute, 1);
+  top: 30%;
+  left: 25%;
+  filter: blur(30px);
+}
+
+
+
+#text{
+  @include size(30%, 60%);
+  @include flex-setting(center, center);
+  text-align: justify;
+  color: $color-2;
+}
+
+
+
+
+
+
+
