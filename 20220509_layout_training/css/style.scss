@@ -1,0 +1,101 @@
+$width-root:100vw;
+$height-root:100vh;
+$color-black:black;
+$color-white:white;
+$solid-black:1px solid black;
+$solid-gray:1px solid #888;
+$solid-red:1px solid #613c3c;
+$solid-col:1px solid #AACCBE;
+$per-100:100%;
+$color-1:rgb(240, 240, 240);
+$color-2:rgb(197, 197, 197);
+$color-3:rgb(172, 172, 172);
+$color-4:rgba(145, 145, 145, 1);
+$color-5:rgba(77, 77, 77, 1);
+$color-6:rgba(39, 39, 39,0.8);
+
+// ------------------------------------------------------------------
+
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+
+// ------------------------------------------------------------------
+
+
+@mixin flex-setting($jus, $ali) {
+  display: flex;
+  justify-content: $jus;
+  align-items: $ali;
+}
+
+
+@mixin root-style {
+  width: $width-root;
+  height: $height-root;
+  @include flex-setting(center, center);
+}  
+
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin container-style {
+  @include size(20vw, 20vw);
+  border: $solid-black;
+  position: relative;
+  // overflow: hidden;
+}
+
+@mixin box-style {
+  @include size(18vw, 18vw);
+  background-color: $color-2;
+  @include position-setting(absolute, 1);
+}
+
+
+@mixin position-setting ($posi, $z-in){
+  position: $posi;
+  z-index: $z-in;
+}
+
+
+
+
+
+// -----------------------------------
+
+#root{
+  @include root-style();
+  flex-direction: column;
+}
+
+#container{
+  @include container-style();
+  overflow: hidden;
+
+  &>item{
+    @include box-style();
+  }
+
+  &>item:nth-child(1){top:1.5vh; left: -15vw;}
+
+  &>item:nth-child(2){top:1.5vh; left: 5vw;}
+
+  &>item:nth-child(3){top:1.5vh; left: 25vw;}
+
+}
+
+#click-btn{
+  @include size(5vw, 3vh);
+  margin-top: 3vh;
+}
+
+
+
+
+
+
+
+

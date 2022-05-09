@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div id="root">
+    <div id="container">
+      <item>item1</item>
+      <item>item2</item>
+      <item>item3</item>
+    </div>
+  </div>
+
+  <script>
+
+    const container = document.getElementById('container');
+    console.log(container);
+    console.dir(container);
+
+    const box1 = container.children[0];
+
+    const box2 = container.children[1];
+
+    const box3 = container.children[2];
+
+    console.log(container.children);
+
+  let a = 0;
+  let timer = setInterval(function() {
+    // console.log(a);
+    a++;
+    if(a > 10){
+      a = 0;
+      // clearInterval(timer);
+    }
+  }, 500);
+
+  </script>
+</body>
+</html>

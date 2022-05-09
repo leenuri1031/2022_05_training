@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.dir(document.body);
+    let width = document.body.clientWidth;
+    // console.log(width);
+
+    // document.body.textContent = 'hello';
+    // console.log(document.body.textContent);
+
+
+    if(width < 500){
+      console.log('mobile');
+      document.body.textContent = '손만충';
+    } else if(width < 1020){
+      console.log('tablet');
+      document.body.textContent = '장준형';
+    }
+    else {
+      console.log('desktop');
+      document.body.textContent = '임성민';
+    }
+
+
+    // let a = 50;
+    // let b = 100;
+
+    // if( a > b){
+    //   console.log('a가 b보다 더 큽니다.');
+    // } else if( a === b ){
+    //   console.log('두 숫자가 같습니다.');
+    // } else {
+    //   console.log('b가 a보다 더 큽니다.');
+    // }
+
+    // let x = 11
+    // if (x > 10 && x < 20) {
+    //   console.log('조건에 맞습니다.');
+    // } else {
+    //   console.log('조건에 맞지 않습니다.');
+    // }
+
+    
+
+
+  </script>
+</body>
+</html>

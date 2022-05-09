@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    ul {
+      border: solid 1px black;
+    }
+
+    li {
+      background-color: brown;
+      color: white;
+    }
+
+    li:hover{
+      background-color: beige;
+      color: blue;
+    }
+
+    .on {
+      font-size: 3rem;
+    }
+
+
+  </style>
+</head>
+<body>
+  <ul id="menu">
+    <li class="items">items1</li>
+    <li class="items">items2</li>
+    <li class="items">items3</li>
+    <li class="items">items4</li>
+    <li class="items">items5</li>
+    <li class="items">items6</li>
+    <li class="items">items7</li>
+    <li class="items">items8</li>
+    <li class="items">items9</li>
+    <li class="items">items10</li>
+  </ul>
+
+
+  <script>
+    const ul = document.querySelector('#menu');
+    console.log(ul);
+
+    // ul.addEventListener('click', function(event) {
+    //   // console.log(event.target);
+    //   console.dir(event.target);
+    //   // event.target.style.color = 'red';
+    //   // event.target.style.backgroundColor = '#ddd';
+
+    //   if(event.target.classList.contains('items')){
+    //     console.log('클래스에 items라는 친구가 들어있습니다.');
+    //     event.target.classList.add('on');
+    //   } else {
+    //     console.log('그런 클래스는 없습니다.');
+    //   }
+    // });
+
+    ul.addEventListener('click', function(event) {
+      // console.log(event);
+      // 클릭 이벤트시 콘솔에 event를 찍어줌 - pointerEvent가 나옴 
+      // event안에 target요소가 있는데 target요소에는 클릭한 요소가 선택되어있음
+      // console.log(event.target);
+      // console.dir(event.target);
+      // 클릭한 요소 = event.target = event가 일어난 요소 -> 스타일링도 가능
+      // console.dir(document);
+      if(event.target.classList.contains('items')){
+        const div = document.createElement('div');
+        document.body.appendChild(div);
+      }
+      // console.log(div);
+
+    });
+
+
+  </script>
+</body>
+</html>
