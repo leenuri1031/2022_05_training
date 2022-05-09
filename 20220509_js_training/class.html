@@ -45,6 +45,15 @@
 
 
   <script>
+
+    function divStyle (target, width, height, bgc, posi){
+      target.style.width = width;
+      target.style.height = height;
+      target.style.backgroundColor = bgc;
+      target.style.position = posi;
+    }
+
+
     const ul = document.querySelector('#menu');
     console.log(ul);
 
@@ -73,10 +82,21 @@
       if(event.target.classList.contains('items')){
         const div = document.createElement('div');
         document.body.appendChild(div);
+        divStyle(div, '300px', '300px', 'beige', 'absolute');
+        div.style.left = '300px';
+        div.style.top = '10px';
+
+        div.addEventListener('click', function() {
+          // console.log('display는 none')
+          // div.style.display = 'none';
+          div.remove();
+        })
       }
       // console.log(div);
-
     });
+
+    /* if문 안에 event를 사용해도 상관 없는 건가요?? */
+
 
 
   </script>
