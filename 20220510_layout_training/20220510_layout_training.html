@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+#menu {
+  width: 200px;
+  height: 300px;
+  list-style-type: none;
+  margin: 100px;
+}
+
+#menu>li:first-child{
+  width: 200px;
+  height: 50px;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.items{
+  width: 200px;
+  height: 50px;
+  background-color: #6d6d6d;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+
+  </style>
+</head>
+<body>
+    <ul id="menu">
+      <li>menu</li>
+      <li class="items">menu-items-1</li>
+      <li class="items">menu-items-2</li>
+      <li class="items">menu-items-3</li>
+      <li class="items">menu-items-4</li>
+
+    </ul>
+  </div>
+
+  <script>
+    const menu = document.getElementById('menu');
+    console.log(menu);
+    console.dir(menu);
+
+    const items = menu.children[0];
+    console.log(items);
+    console.dir(items);
+
+    const menuItems1 = menu.children[1];
+    const menuItems2 = menu.children[2];
+    const menuItems3 = menu.children[3];
+    const menuItems4 = menu.children[4];
+
+    const menuArr = [menuItems1, menuItems2, menuItems3, menuItems4];
+
+    console.log(menuArr);
+    console.dir(menuArr);
+
+    let status = true;
+    items.addEventListener('click', function() {
+      if(status === true){
+        // console.log('display를 block으로');
+        for(let i = 0; i < menuArr.length; i++){
+          menuArr[i].style.display = 'flex';
+        }
+        status = false;
+      }else{
+        // console.log('display를 none으로');
+        for(let i = 0; i < menuArr.length; i++){
+          menuArr[i].style.display = 'none';
+        }
+        status = true;
+      }
+    });
+
+  
+
+
+  </script>
+</body>
+</html>

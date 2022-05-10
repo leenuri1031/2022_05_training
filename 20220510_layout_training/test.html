@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  * {margin: 0; padding: 0; box-sizing: border-box;}
+
+  #root {
+    width: 100vw;
+    height: 100vh;
+    background-color: sandybrown;
+  }
+
+  #root>div:nth-child(1) {background-color: #333;}
+
+  #root>div:nth-child(2) {background-color: #ddd;}
+
+
+
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="btn">menu-1</div>
+    <div id="items">items-1</div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('btn');
+    const items = document.getElementById('items');
+
+    console.log(btn);
+    console.log(items);
+
+
+    let boolean = true;
+    btn.addEventListener('click', function() {
+      if(boolean === true){
+        console.log('hello');
+        items.style.display = 'none';
+        boolean = false;
+      } else {
+        console.log('bye');
+        items.style.display = 'block';
+        boolean = true;
+      }
+    });
+
+
+
+  </script>
+</body>
+</html>

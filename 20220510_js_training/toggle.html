@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.mystyle {
+  width: 100%;
+  padding: 25px;
+  background-color: coral;
+  color: white;
+  font-size: 25px;
+  box-sizing: border-box;
+}
+</style>
+</head>
+<body>
+
+<p>Click the "Try it" button to toggle between adding and removing the "mystyle" class name of the DIV element:</p>
+
+<!-- <button onclick="myFunction()">Try it</button> -->
+<!-- addEventListener의 'click' event === onclick -->
+<!-- onclick  = 함수 -->
+<button id="click-btn">click</button>
+
+<div id="myDIV">
+This is a DIV element.
+</div>
+
+<script>
+
+  const clickBtn = document.getElementById('click-btn');
+  console.log(clickBtn);
+
+  clickBtn.addEventListener('click', function() {
+    // clickBtn에 click이벤트 추가
+    let element = document.getElementById("myDIV");
+    // element라는 변수에 ID가 'myDIV'인 요소를 가져와 지정
+    // console.dir(element);
+    element.classList.toggle("mystyle");
+    // element안에 classList안에 toggle이 있는데 toggle의 타겟을 임의로 지정해 준 class를 가져옴
+    // 추측으로는 toggle은 class로만 제어 할 수 있는 것 같음 - classList안에 있으니까
+    // toggle은 add와 remove를 합쳐놓은 것 같음 - 스위치 느낌 = if문의 ture/false 느낌
+  })
+
+// function myFunction() {
+//   var element = document.getElementById("myDIV");
+//   element.classList.toggle("mystyle");
+// }
+
+</script>
+
+</body>
+</html>

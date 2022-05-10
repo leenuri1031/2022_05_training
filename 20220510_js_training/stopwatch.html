@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+
+  #root {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #root>div{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 120px;
+  }
+
+  #root>div>span{
+    font-size: 2rem;
+    margin: 10px;
+  }
+
+  #root>button{
+    width: 50px;
+    height: 30px;
+    margin-left: 45px;
+  }
+
+  </style>
+
+</head>
+<body>
+  <div id="root">
+    <div>
+      <span id="min">00</span>
+      <span>:</span>
+      <span id="sec">00</span>
+      <span>:</span>
+      <span id="nano-sec">00</span>
+    </div>
+    <button id="start-btn">start</button>
+    <button id="stop-btn">stop</button>
+    <button id="reset-btn">reset</button>
+  </div>
+</body>
+<script>
+
+  const min = document.getElementById('min');
+  const sec = document.getElementById('sec');
+  const nanoSec = document.getElementById('nano-sec');
+
+  // console.log(min);
+  // console.log(sec);
+  // console.log(nanoSec);
+  console.dir(min);
+  console.dir(sec);
+  console.dir(nanoSec);
+
+  const startBtn = document.getElementById('start-btn');
+  const stopBtn = document.getElementById('stop-btn');
+  const resetBtn = document.getElementById('reset-btn');
+
+  console.log(startBtn);
+  console.log(stopBtn);
+  console.log(resetBtn);
+
+  let minNum = 00;
+  let secNum = 00;
+  let nanoSecNum = 00;
+
+  let interval; 
+
+  function stopWatch() {
+    // nano-sec자리 
+    nanoSecNum++;
+    if(nanoSecNum <= 9){
+      nanoSec.innerHTML = '0'+ nanoSecNum;
+    }  
+    
+    if(nanoSecNum > 9){
+      nanoSec.innerHTML = nanoSecNum;
+    } 
+
+
+    if(nanoSecNum > 99) {
+      secNum++;
+      sec.innerHTML = '0'+ secNum;
+      nanoSecNum = 0;
+      nanoSec.innerHTML = '0'+ nanoSecNum;
+    }
+    // sec자리
+
+    if(secNum > 9){
+      sec.innerHTML = secNum;
+    }
+
+    if(secNum > 59){
+      minNum++;
+      min.innerHTML = '0' + minNum;
+      secNum = 0;
+      sec.innerHTML = '0'+ secNum;
+    }
+
+    // min자리
+    if(minNum > 9){
+      min.innerHTML = minNum;
+    }
+  };
+
+  
+  startBtn.addEventListener('click', function() {
+    // console.log('시작');
+    clearInterval(interval);
+    interval = setInterval(stopWatch, 10);
+  });
+
+  stopBtn.addEventListener('click', function() {
+    // console.log('중지');
+    clearInterval(interval);
+  });
+
+  resetBtn.addEventListener('click', function() {
+    // console.log('다시 시작');
+    clearInterval(interval);
+    minNum = 0;
+    secNum = 0;
+    nanoSecNum = 0;
+
+    min.innerHTML = '0'+minNum;
+    sec.innerHTML = '0'+secNum;
+    nanoSec.innerHTML = '0'+nanoSecNum;
+
+  });
+
+
+
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
