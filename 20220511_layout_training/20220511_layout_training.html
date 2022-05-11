@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div id="root">
+    <section id="text-box-col">
+      <div class="text-items">function</div>
+      <div class="text-items">variable</div>
+      <div class="text-items">index</div>
+      <div class="text-items">constant</div>
+      <div class="text-items">object</div>
+      <div class="text-items">array</div>
+    </section>    
+    <!-- color-text-container -->
+    <section>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+    </section>
+    <!-- gray-text-container -->
+  </div>
+
+  <script>
+
+    const root = document.getElementById('root');
+    console.log(root);
+    console.dir(root);
+
+    const textBoxCol = document.getElementById('text-box-col');
+    console.log(textBoxCol);
+    console.dir(textBoxCol);
+
+    const textItems = document.getElementsByClassName('text-items');
+    console.log(textItems);
+
+    let status = true;
+    textItems[0].addEventListener('click', function() {
+      // console.dir(textItems[0]);
+      if(status === true){
+        textItems[2].style.color = 'rgba(255, 0, 0, 0.6)';
+        textItems[2].style.fontSize = '10rem';
+        textItems[2].style.zIndex = '6';
+        status = false;
+      } else {
+        textItems[2].style.color = 'rgba(189, 237, 252, 0.6)';
+        textItems[2].style.fontSize = '8rem';
+        textItems[2].style.zIndex = '4';
+        status = true;
+      }
+    });
+
+
+  </script>
+</body>
+</html>

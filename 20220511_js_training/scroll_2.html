@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {margin: 0; padding: 0;}
+
+    #root {
+      width: 100vw;
+      height: 3000px;
+      background: linear-gradient(0deg, #ccc, #333);
+      /* linear-gradient는 background에서 적용 */
+      /* (각도, 첫번째 색, 마지막 색) */
+    }
+
+    #top-btn {
+      width: 80px;
+      height: 80px;
+      border: solid 2px white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      position: fixed;
+      /* fixed, sticky사용해도 위치 고정 할 수 있음 */
+      top: 80vh;
+      left: 90vw;
+    }
+
+    
+
+
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="top-btn"> top </div>
+  </div>
+
+  <script>
+
+    const topBtn = document.getElementById('top-btn');
+    console.log(topBtn);
+
+    // 스크롤하면 버튼 나타나게 ->
+
+    window.addEventListener('scroll' ,function() {
+      let scrollYValue = window.scrollY;
+      // console.log(scrollYValue);
+      
+      if(scrollYValue <= 0){
+        topBtn.style.display = 'none';
+      } 
+  
+      else if (scrollYValue > 0) {
+        topBtn.style.display = 'flex';
+      }
+    });
+    
+    topBtn.addEventListener('click', (event) => {
+      window.scrollTo({
+        top :0,
+        behavior : 'smooth'
+      });
+    });
+  // top 버튼
+  
+  
+  </script>
+</body>
+
+</html>

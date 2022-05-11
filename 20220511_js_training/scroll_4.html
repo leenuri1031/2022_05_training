@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {margin: 0; padding: 0;}
+
+    #root{
+      width: 100vw;
+      height: 500vh;
+      background-color: #ccc;
+    }
+
+    #root>section{
+      width: 100vw;
+      height: 1vh;
+      background-color: steelblue;
+      border: 1px solid black;
+    }
+
+    #root>aside{
+      width: 50vw;
+      height: 1vh;
+      background-color: tomato;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    const maker = document.getElementById('root');
+
+    let article = document.createElement('article');
+    maker.appendChild(article);
+    // 읽자마자 실행 -> 두번 사용 할 수 없음
+
+    let count = 0;
+    maker.addEventListener('wheel', function() {
+      console.log('wheel event');
+      let section = document.createElement('section');
+      // 지역변수 -> 범위 밖에서 실행 시킬 수 없음
+      section.setAttribute('id', `section-${count}`);
+      section.setAttribute('clss', `section-class-${count}`);
+      // setAttribute -> 동적으로 id, class추가
+      section.textContent = count;
+      maker.appendChild(section);
+      count++;
+    });
+
+    maker.addEventListener('click', function() {
+      console.log('click event is running now');
+      let aside = document.createElement('aside');
+      aside.textContent = 'click click';
+      maker.insertBefore(aside, maker.firstChild);
+    });
+
+
+  </script>
+
+
+</body>
+</html>
