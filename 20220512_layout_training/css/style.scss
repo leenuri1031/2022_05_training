@@ -1,0 +1,181 @@
+$width-root:100vw;
+$height-root:100vh;
+$color-black:black;
+$color-white:white;
+$color-gray : rgb(177, 177, 177);
+$solid-black:1px solid black;
+$solid-gray:1px solid #888;
+$solid-red:2px solid #7c1e1e;
+$solid-blue:2px solid #583fe6;
+$solid-col:1px solid #AACCBE;
+$per-100:100%;
+$color-1:rgba(216, 216, 216, 0.6);
+$color-2:rgba(168, 247, 236, 0.5);
+$color-3:rgba(243, 233, 95, 1);
+$color-4:rgba(100, 130, 230, 1);
+$color-5:rgb(236, 60, 69);
+$color-6:rgba(255, 133, 77, 1);
+$color-7:rgba(224, 85, 236, 1);
+
+
+// ------------------------------------------------------------------
+
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+
+// ------------------------------------------------------------------
+
+
+@mixin flex-setting($jus, $ali) {
+  display: flex;
+  justify-content: $jus;
+  align-items: $ali;
+}
+
+
+@mixin root-style {
+  width: $width-root;
+  height: $height-root;
+  @include flex-setting(center, center);
+}  
+
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+
+@mixin position-setting ($posi, $z-in){
+  position: $posi;
+  z-index: $z-in;
+}
+
+@mixin font-style($rem, $f-weight, $style,$col) {
+  font : {
+    size: $rem;
+    weight:$f-weight;
+    style:$style;
+  }
+  color: $col;
+}
+
+@mixin col-box {
+  @include size(25%, 60%);
+  @include position-setting(absolute, 3);
+  left: 25%;
+}
+
+@mixin shadow-box {
+  @include size(25%, 60%);
+  @include position-setting(absolute, 2);
+  top: 23%;
+  left: 27%;
+  background-color: $color-2
+}
+
+@mixin gray-box {
+  @include size(25%, 60%);
+  @include position-setting(absolute, 1);
+  top: 28%;
+  background-color: $color-1
+}
+
+@mixin box-style ($w, $h, $solid, $bgc) {
+  width: $w;
+  height: $h;
+  border: $solid;
+  background-color: $bgc;
+  @include flex-setting(center, center);
+}
+
+@mixin box-posi ($top, $left) {
+  top: $top;
+  left: $left;
+}
+
+
+
+// -----------------------------------
+
+#root{
+  @include root-style();
+  
+  &>section:nth-child(1){
+    @include col-box();
+
+    &>div:nth-child(1){
+      @include box-style($per-100, 50%, $solid-blue, $color-4);
+      @include position-setting(absolute, 1);
+      @include font-style(3rem, 900, italic, $color-white);
+    }
+
+    &>div:nth-child(2){
+      @include box-style(50%, 10%, $solid-red, $color-3);
+      border-radius: 50px;
+      @include position-setting(absolute, 2);
+      @include box-posi(45%, 40%);
+      @include font-style(2rem, 900, italic, $color-6);
+    }
+
+    &>div:nth-child(3){
+      @include box-style($per-100, 50%, $solid-red, $color-6);
+      @include position-setting(absolute, 1);
+      @include box-posi(50%, 0%);
+      
+      &>p{
+        margin-top: 5vh;
+        @include size(80%, 90%);
+        @include font-style(1rem, 500, italic, $color-5);
+      }
+    }
+
+  }
+
+  &>section:nth-child(2){
+    @include shadow-box();
+    filter: blur(2px);
+  }
+
+  &>section:nth-child(3){
+    @include gray-box();
+    filter: blur(2px);
+
+    &>div:nth-child(1){
+      @include size(90%, 40%);
+      @include font-style(4rem, 500, nomal, $color-gray);
+      position: relative;
+      top: 5vh;
+      left: 1vw;
+    }
+
+    &>div:nth-child(2){
+      @include size(40%, 10%);
+      @include font-style(14px, 500, nomal, $color-gray);
+      position: relative;
+      left: 20vw;
+    }
+
+    &>div:nth-child(3){
+      @include size(90%, 40%);
+      @include flex-setting(flex-end, center);
+
+      &>p{
+        @include size($per-100, 90%);
+        @include font-style(1rem, 500, nomal, $color-gray);
+        text-align: right;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

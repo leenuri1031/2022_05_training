@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root > section:nth-child(1) {
+  width: 25%;
+  height: 60%;
+  position: absolute;
+  z-index: 3;
+  left: 25%;
+}
+#root > section:nth-child(1) > div:nth-child(1) {
+  width: 100%;
+  height: 50%;
+  border: 2px solid #583fe6;
+  background-color: rgb(100, 130, 230);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  font-size: 3rem;
+  font-weight: 900;
+  font-style: italic;
+  color: white;
+}
+#root > section:nth-child(1) > div:nth-child(2) {
+  width: 50%;
+  height: 10%;
+  border: 2px solid #7c1e1e;
+  background-color: rgb(243, 233, 95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  position: absolute;
+  z-index: 2;
+  top: 45%;
+  left: 40%;
+  font-size: 2rem;
+  font-weight: 900;
+  font-style: italic;
+  color: rgb(255, 133, 77);
+}
+#root > section:nth-child(1) > div:nth-child(3) {
+  width: 100%;
+  height: 50%;
+  border: 2px solid #7c1e1e;
+  background-color: rgb(255, 133, 77);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0%;
+}
+#root > section:nth-child(1) > div:nth-child(3) > p {
+  margin-top: 5vh;
+  width: 80%;
+  height: 90%;
+  font-size: 1rem;
+  font-weight: 500;
+  font-style: italic;
+  color: rgb(236, 60, 69);
+}
+#root > section:nth-child(2) {
+  width: 25%;
+  height: 60%;
+  position: absolute;
+  z-index: 2;
+  top: 23%;
+  left: 27%;
+  background-color: rgba(168, 247, 236, 0.5);
+  filter: blur(2px);
+}
+#root > section:nth-child(3) {
+  width: 25%;
+  height: 60%;
+  position: absolute;
+  z-index: 1;
+  top: 28%;
+  background-color: rgba(216, 216, 216, 0.6);
+  filter: blur(2px);
+}
+#root > section:nth-child(3) > div:nth-child(1) {
+  width: 90%;
+  height: 40%;
+  font-size: 4rem;
+  font-weight: 500;
+  font-style: nomal;
+  color: rgb(177, 177, 177);
+  position: relative;
+  top: 5vh;
+  left: 1vw;
+}
+#root > section:nth-child(3) > div:nth-child(2) {
+  width: 40%;
+  height: 10%;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: nomal;
+  color: rgb(177, 177, 177);
+  position: relative;
+  left: 20vw;
+}
+#root > section:nth-child(3) > div:nth-child(3) {
+  width: 90%;
+  height: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#root > section:nth-child(3) > div:nth-child(3) > p {
+  width: 100%;
+  height: 90%;
+  font-size: 1rem;
+  font-weight: 500;
+  font-style: nomal;
+  color: rgb(177, 177, 177);
+  text-align: right;
+}/*# sourceMappingURL=style.css.map */

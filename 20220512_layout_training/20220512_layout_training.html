@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div id="root">
+    <section>
+      <div>
+        <u>BORDERLINE</br>DESIGN</u>
+      </div>
+      <div>gooood?</div>
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet laborum odio provident accusamus exercitationem, magnam quibusdam consectetur dolor consequatur, consequuntur sed! Veniam vitae ipsa nulla numquam consectetur quas. Necessitatibus molestiae deleniti nobis vel ullam, sint vero! Dolorum, distinctio fuga itaque aperiam culpa illum porro necessitatibus ea, iusto adipisci doloremque laborum?
+        </p>
+      </div>
+    </section>    <!-- color-box -->
+    <section></section>    <!-- shadow-box -->
+    <section>
+      <div>BORDERLINE</br>DESIGN</div>
+      <div>gooood?</div>
+      <div>
+        <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum doloremque dolore earum a. Quod quia fugit obcaecati alias quae recusandae doloremque beatae, ad molestiae cumque illo similique? Sit officiis modi tempora ad perferendis unde dolores necessitatibus ipsa, voluptate quisquam pariatur quasi eius blanditiis fugit illum, adipisci ab iure officia nam iusto dicta? Commodi libero fuga qui pariatur nostrum dolorum vel!
+        </p>
+      </div>
+    </section>    <!-- gray-box -->
+  </div>
+
+  <script>
+    const root = document.getElementById('root');
+    console.log(root);
+    // console.dir(root.children);
+
+    const sections = root.children;
+    console.log(sections);
+    console.log(sections[0].children);
+
+    const clickBtn = sections[0].children[1];
+    console.log(clickBtn);
+    clickBtn.style.cursor = 'pointer';
+
+    clickBtn.addEventListener('click', function() {
+      // console.log('click me');
+      // console.log(sections.length);
+      for(let i = 0; i < sections.length-1; i++ ){
+        // console.log(sections[i]);
+        sections[i].style.display = 'none';
+      };
+    });
+
+    sections[2].addEventListener('click', function() {
+      sections[0].style.display = 'flex';
+      sections[1].style.display = 'block';
+    });
+
+  </script>
+</body>
+</html>

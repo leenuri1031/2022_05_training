@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box;}
+
+  ul{
+    width: 400px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: 20px;
+  }
+
+  /* ul>li{
+    width: 100px;
+    height: inherit;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+  } */
+
+</style>
+<body>
+  <ul id="menu">
+    <li class="menu-list" data-display="1">menu-1</li>
+    <li class="menu-list" data-display="2">menu-2</li>
+    <li class="menu-list" data-display="3">menu-3</li>
+    <li class="menu-list" data-display="4">menu-4</li>
+  </ul>
+
+  <script>
+
+    function liStyle(target){
+      target.style.width = '100px';
+      target.style.height = 'inherit';
+      target.style.display = 'flex';
+      target.style.backgroundColor = '#ccc';
+      target.style.justifyContent = 'center';
+      target.style.alignItems = 'center';
+      target.style.border = '1px solid black';
+    }
+
+    const ul = document.getElementById('menu'); 
+    const li = document.getElementsByClassName('menu-list');
+
+    console.log(ul);
+    console.log(li);
+
+    console.dir(ul);
+    console.dir(li);
+    // 식별 완료
+
+    // 스타일링하기
+    for(let count = 0; count < li.length; count++){
+      liStyle(li[count]);
+    }
+
+    // click event 추가하기
+    // console.log(li[0]);
+    li[0].addEventListener('click', function() {
+      // console.log('hi');
+      // for(let i = 0; i < li.length; i++){
+      //   console.log(li[i].dataset.display);
+
+      //   if(li[i].dataset.display === 1){
+      //     li[i].style.color = 'white';
+      //   }
+      // }
+    });
+
+
+
+  </script>
+</body>
+</html>
