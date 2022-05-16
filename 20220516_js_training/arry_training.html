@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="one"></div>
+  <div id="two">
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+  </div>
+
+  <script>
+    const one = document.querySelector('#one');
+    const twos = document.getElementById('two').children;
+    const three = document.querySelectorAll('#two > section');
+
+    console.log(one);
+    console.log(twos);
+    console.log(three);
+
+    const four = Array.from(three);
+    // 유사 배열 객체 -> 배열처럼 사용(취급);
+    // .slice.call() -> 값들의 모음을 잘라 다시 배열자리에 넣는 것
+    // 배열메서드 + 함수메서드 를 사용 -> 직관적이지 못함
+    // Array.from()
+    console.log(Array.isArray(four));
+    console.log(typeof(three));
+
+
+
+  </script>
+
+</body>
+</html>
