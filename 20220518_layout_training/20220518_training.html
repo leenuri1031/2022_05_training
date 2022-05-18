@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+
+    #btn{
+      cursor: pointer;
+    }
+</style>
+
+<body>
+  <div id="root">
+    <div id="container">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+    </div>
+    <div id="btn">click</div>
+  </div>
+
+  <script>
+
+    function flexStyling(target, justi, ali, flexDirection="row") {
+      target.style.display = "flex";
+      target.style.justifyContent = justi;
+      target.style.alignItems = ali;
+      target.style.flexDirection = flexDirection;
+    }
+
+    function size(target, w, h){
+      target.style.width = w;
+      target.style.height = h;
+    }
+
+    function circleStyling(target, bgc, radius, w='7vw', h='7vw',){
+      target.style.width = w;
+      target.style.height = h;
+      target.style.backgroundColor = bgc;
+      target.style.borderRadius = radius;
+    }
+
+
+    /* ------------------------------------- */
+    const root = document.getElementById('root');
+    const container = document.getElementById('container');
+    const btn = document.getElementById('btn');
+
+    // console.log(root);
+    // console.dir(container);
+    // console.log(btn);
+
+    // console.log(container.children);
+
+    let circleNum = container.children;
+
+    console.log(Array.isArray(circleNum));
+    console.dir(circleNum);
+
+    const circleNumArray = Array.from(circleNum);
+    console.log(circleNumArray);
+    console.log(Array.isArray(circleNumArray));
+
+    
+
+
+    /* basic-style ------------------- */
+    size(root, '100vw', '100vh');
+    flexStyling(root, 'space-around', 'center', 'column');
+
+    size(container, '90vw', '40vh');
+    flexStyling(container, 'space-evenly', 'center');
+    container.style.border = '1px solid black';
+
+    size(btn, '20vw', '10vh');
+    flexStyling(btn, 'center', 'center');
+
+    btn.style.border = '1px solid black';
+
+    for(let i = 0; i < circleNumArray.length; i++){
+      circleStyling(circleNumArray[i], '#ccc', '50%');
+      flexStyling(circleNumArray[i], 'center', 'center');
+      circleNumArray[i].style.position = 'relative';
+    }
+    /* basic-style ------------------- */
+
+    /* click-event ------------------- */
+    btn.addEventListener('click', function() {
+      // console.log('TEST');
+      // console.dir(circleNumArray[0]);
+      // circleNumArray[0].style.bottom = '10vh';
+      /* 
+      클릭하면 움직일 수 있게 만들었음 
+      -> 클릭 한번에 1이 위로 클릭 두번에 2가 아래로 만드는 방법은?   
+      */
+      
+     // console.log(circleNumArray[0].textContent);
+     // circleNumArray.filter(item => item % 2 ===0);
+      const a= circleNumArray.map((ele, index) => index % 2 === 0);
+      console.log(a);
+      // boolean true/false 로 if문?
+
+      const b = circleNumArray.filter((ele, index) => (index+1)%2 === 0);
+      console.log(b);
+    });
+
+
+    let count = 0;
+    for(let i = 0; i < circleNumArray.length; i++){
+      
+    }
+    // click event를 for문 으로 만들어야함 
+
+
+
+
+  </script>
+</body>
+</html>
