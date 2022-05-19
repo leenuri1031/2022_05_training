@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {margin: 0; padding: 0; box-sizing: border-box;}
+
+  #root{
+    width: 100vw;
+    height: 100vh;
+  }
+</style>
+<body>
+  <div id="root">
+    <div id="btn-left">left</div>
+    <div>
+      <h1>1</h1>
+      <h1>2</h1>
+      <h1>3</h1>
+      <h1>4</h1>
+      <h1>5</h1>
+    </div>
+    <div id="btn-right">right</div>
+  </div>
+
+  <script>
+    function flexStyling(target, justi, ali, flexDirection="row") {
+      target.style.display = "flex";
+      target.style.justifyContent = justi;
+      target.style.alignItems = ali;
+      target.style.flexDirection = flexDirection;
+    }
+
+    function size(target, w, h){
+      target.style.width = w;
+      target.style.height = h;
+    }
+
+    function boxStyling(target, bgc, w='7vw', h='7vw'){
+      target.style.width = w;
+      target.style.height = h;
+      target.style.backgroundColor = bgc;
+    }
+    /* ----------------------------------------------------------------- */
+    const root = document.getElementById('root');
+    const container = root.children[1];
+    
+    console.log(root);
+    console.dir(container.children);
+    const numbers = [container.children[0],container.children[1],container.children[2],container.children[3],container.children[4]];
+
+    // console.log(numbers);
+    // console.log(Array.isArray(numbers));
+
+    const leftBtn = document.getElementById('btn-left');
+    const rightBtn = document.getElementById('btn-right');
+
+
+    flexStyling(root, 'space-around', 'center');
+    
+    size(container, '60vw', '10vh');
+    flexStyling(container, 'space-around', 'center');
+
+    boxStyling(leftBtn, '#ccc' ,'5vw', '5vw');
+    boxStyling(rightBtn, '#ccc' ,'5vw', '5vw');
+    flexStyling(leftBtn, 'center', 'center');
+    flexStyling(rightBtn, 'center', 'center');
+
+    
+    /* 
+    왼쪽 버튼을 누르면 index0번의 1이 삭제 되고 index4번에 1이 추가됨
+    .splice(변경할 index , 제거할 갯수 , 추가할 요소)
+    .insertBefore(추가할 요소, 앞으로 이동할 자식 요소)
+    .appendChild(이동할 요소)
+    */
+
+
+    // numbers.splice(0, 5, '2','3','4','5','1');
+    // console.log(numbers);
+
+    let i = 0;
+    leftBtn.addEventListener('click', () => {
+      // console.log('click-left');
+      container.removeChild(numbers[i]);
+      container.appendChild(numbers[i]);
+      i++;
+      if(i === numbers.length){
+        i = 0;
+      }
+    });
+
+    let count = 4;
+    rightBtn.addEventListener('click', () => {
+      // console.log('click-right');
+      container.removeChild(numbers[count]);
+      container.prepend(numbers[count]);
+      count--;
+      if(count < 0){
+        count = 4;
+      }
+    });
+
+    /* 
+      오른쪽 버튼을 누르면 index4번의 5가 삭제 되고 index0번에 5가 추가됨 
+    */
+
+
+  </script>
+</body>
+</html>
