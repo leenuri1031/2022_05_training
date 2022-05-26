@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+  
+    #root{
+      width: 100vw;
+      height: 100vh;
+      /* background-color: #333; */
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <h1>111</h1>
+    <h2>222</h2>
+  </div>
+  <script>
+    const root = document.getElementById('root');
+    // console.log('root');
+    // console.dir(root);
+
+    let totalHight = root.offsetHeight;
+    let totalWidth = root.offsetWidth;
+    console.log(totalHight);
+    console.log(totalWidth);
+
+    let bgColorValue = 255;
+
+    // let bgColor = `rgb(${},${},${})`;
+
+    root.addEventListener('mousemove', (event) => {
+      if(event.offsetX < (totalWidth*50) / 100 && event.offsetY < (totalHight*50) / 100){
+        root.style.backgroundColor = 'rgb(120, 125, 130)';
+      } else {
+        root.style.backgroundColor = 'rgb(200, 60, 20)';
+      }
+      root.children[0].textContent = event.offsetX;
+      root.children[1].textContent = event.offsetY;
+    });
+
+    // let percentResult = (totalHight*50) / 100 ;
+    // 브라우저 전체 높이값의 50%에 해당하는 px
+    // console.log(percentResult);
+    
+    // let value = (463/totalHight) * 100;
+    // 전체값에 463px의 퍼센트 
+    // console.log(value);
+
+    // let bgColorValue = 255;
+    // let percentResult = Math.round((bgColorValue * 35) / 100);
+    // // Math.round() : 소숫점 이하의 숫자를 반올림하여 정수로 만들어주는 메서드
+
+    /* 
+    pseudo1 browser top : 0% bottom : 100%
+    pseudo1 color RGB white : 255 black : 0
+    */
+
+    // let bgColor = `rgb(${percentResult},${percentResult},${percentResult})`;
+
+    // root.style.backgroundColor = bgColor;
+    // root.addEventListener('mousemove',(event) => {
+    //   // console.log(event.offsetX);
+    //   // console.log(event.offsetY);
+    //   root.children[0].textContent = event.offsetX;
+    //   root.children[1].textContent = event.offsetY;
+    // });
+
+    // offsetX : left-0 right-max
+    // offsetY : top-0 bottom-max
+
+
+
+  </script>
+</body>
+</html>
