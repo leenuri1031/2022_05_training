@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root" data-index="1">
+    <section class="test"></section>
+    <section class="test"></section>
+    <section class="test"></section>
+    <section class="test" data-index="1"></section>
+    <section class="test"></section>
+
+    <article class="test"></article>
+    <article class="test"></article>
+    <article class="test"></article>
+    <article class="test"></article>
+    <article class="test" data-index="1"></article>
+
+    <nav class="test"></nav>
+    <nav class="test"></nav>
+    <nav class="test"></nav>
+    <nav class="test" data-index="1"></nav>
+    <nav class="test"></nav>
+    <nav class="test"></nav>
+    <nav class="test"></nav>
+    <nav class="test"></nav>
+    <nav class="test"></nav>
+    <nav class="test"></nav>
+  </div>
+
+  <script>
+    const root = document.getElementById('root');
+    const test1 = document.querySelectorAll('.test');
+
+    console.log(test1);
+
+    for(let i = 0; i<test1.length; i++){
+      test1[i].style.width = '50px';
+      test1[i].style.height = '50px';
+      if(test1[i].dataset.index === '1'){
+        console.log(i);
+        if(test1[i].classList.contains('test')){
+          test1[i].style.backgroundColor = 'blue';
+          test1[i].style.width = '100px';
+          test1[i].style.height = '100px';
+        }
+      }
+    }
+
+    /* console.dir(root);
+    console.log(root.dataset);
+    console.log(typeof root.dataset.index);
+     */
+
+    // dataset : 객체로 수집할 수 있음
+    // 포함여부 확인이나, 구분이 가능
+    // 
+
+  </script>
+</body>
+</html>
